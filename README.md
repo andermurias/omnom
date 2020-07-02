@@ -1,12 +1,14 @@
 # OM.NOM Tools
 
+If you want to use the tools, you can see them on [om.nom.es](https://om.nom.es)
+
 This is project based on [Devias Kit - Admin Dashboard](https://react-material-dashboard.devias.io/dashboard)
 
 ---
 
 > This project has been prepared only to create minor and util tools, and fast mvp and proptotyping, so the code quality might not be as good as should be
 
---
+---
 
 ## Quick start
 
@@ -18,8 +20,10 @@ This is project based on [Devias Kit - Admin Dashboard](https://react-material-d
 
 - Views are on: `localhost:3000`
 
-
 ## License
 
 - Licensed under MIT (/LICENSE.md)
 
+---
+
+Crafted by [andermurias](https://andermurias.me)
