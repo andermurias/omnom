@@ -11,10 +11,11 @@ const useStyles = makeStyles(() => ({
   },
   img: {
     height: 50,
+    padding: '6px 0',
   },
 }));
 
-const Topbar = props => {
+const Topbar = (props) => {
   const {className, ...rest} = props;
 
   const classes = useStyles();

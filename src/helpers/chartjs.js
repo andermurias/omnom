@@ -1,9 +1,9 @@
 // ChartJS extension rounded bar chart
 // https://codepen.io/jedtrow/full/ygRYgo
 function draw() {
-  const { ctx } = this._chart;
+  const {ctx} = this._chart;
   const vm = this._view;
-  let { borderWidth } = vm;
+  let {borderWidth} = vm;
 
   let left;
   let right;
@@ -16,7 +16,7 @@ function draw() {
 
   // If radius is less than 0 or is large enough to cause drawing errors a max
   //      radius is imposed. If cornerRadius is not defined set it to 0.
-  let { cornerRadius } = this._chart.config.options;
+  let {cornerRadius} = this._chart.config.options;
   if (cornerRadius < 0) {
     cornerRadius = 0;
   }
@@ -53,13 +53,10 @@ function draw() {
     borderWidth = borderWidth > barSize ? barSize : borderWidth;
     const halfStroke = borderWidth / 2;
     // Adjust borderWidth when bar top position is near vm.base(zero).
-    const borderLeft =
-      left + (borderSkipped !== 'left' ? halfStroke * signX : 0);
-    const borderRight =
-      right + (borderSkipped !== 'right' ? -halfStroke * signX : 0);
+    const borderLeft = left + (borderSkipped !== 'left' ? halfStroke * signX : 0);
+    const borderRight = right + (borderSkipped !== 'right' ? -halfStroke * signX : 0);
     const borderTop = top + (borderSkipped !== 'top' ? halfStroke * signY : 0);
-    const borderBottom =
-      bottom + (borderSkipped !== 'bottom' ? -halfStroke * signY : 0);
+    const borderBottom = bottom + (borderSkipped !== 'bottom' ? -halfStroke * signY : 0);
     // not become a vertical line?
     if (borderLeft !== borderRight) {
       top = borderTop;
@@ -80,7 +77,12 @@ function draw() {
   // Corner points, from bottom-left to bottom-right clockwise
   // | 1 2 |
   // | 0 3 |
-  const corners = [[left, bottom], [left, top], [right, top], [right, bottom]];
+  const corners = [
+    [left, bottom],
+    [left, top],
+    [right, top],
+    [right, bottom],
+  ];
 
   // Find first (starting) corner with fallback to 'bottom'
   const borders = ['bottom', 'left', 'top', 'right'];
@@ -168,12 +170,7 @@ function draw() {
       ctx.lineTo(x + width - radius, y);
       ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
       ctx.lineTo(x + width, y + height - radius);
-      ctx.quadraticCurveTo(
-        x + width,
-        y + height,
-        x + width - radius,
-        y + height
-      );
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
       ctx.lineTo(x + radius, y + height);
       ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
       ctx.lineTo(x, y + radius);
@@ -188,5 +185,5 @@ function draw() {
 }
 
 export default {
-  draw
+  draw,
 };

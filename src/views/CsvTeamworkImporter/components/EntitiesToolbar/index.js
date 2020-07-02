@@ -1,1 +1,1 @@
-export { default } from './EntitiesToolbar';
+export {default} from './EntitiesToolbar';

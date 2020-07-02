@@ -5,7 +5,7 @@ import {makeStyles} from '@material-ui/styles';
 import classnames from 'classnames';
 import ColorThief from 'colorthief';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   fileInput: {
     display: 'none',
   },
@@ -84,9 +84,9 @@ const ImageCanvasColor = ({searchColor}) => {
   const [getColorsAutomatically, setGetColorsAutomatically] = useState(false);
   const [canvasSize, setCanvasSize] = useState([0, '100%']);
 
-  const handleGetColorsAutomatically = e => setGetColorsAutomatically(e.target.checked);
+  const handleGetColorsAutomatically = (e) => setGetColorsAutomatically(e.target.checked);
 
-  const onCanvasMouseMove = e => {
+  const onCanvasMouseMove = (e) => {
     var context = canvas.current.getContext('2d');
 
     // const rect = canvas.current.getBoundingClientRect();
@@ -114,7 +114,7 @@ const ImageCanvasColor = ({searchColor}) => {
     }
   };
 
-  const onCanvasClick = e => {
+  const onCanvasClick = (e) => {
     var context = canvas.current.getContext('2d');
     const rect = canvas.current.getBoundingClientRect();
     const x = e.nativeEvent.clientX - rect.left;
@@ -123,7 +123,7 @@ const ImageCanvasColor = ({searchColor}) => {
     searchColor(rgbToHex(pixelData));
   };
 
-  const invertHex = hexnum => {
+  const invertHex = (hexnum) => {
     hexnum = hexnum.toUpperCase();
     var splitnum = hexnum.split(''),
       resultnum = '',
@@ -148,11 +148,11 @@ const ImageCanvasColor = ({searchColor}) => {
     return resultnum;
   };
 
-  const readURL = e => {
+  const readURL = (e) => {
     const input = e.currentTarget;
     if (input.files && input.files[0]) {
       var reader = new FileReader();
-      reader.onload = loadEvent => {
+      reader.onload = (loadEvent) => {
         var colorThief = new ColorThief(),
           image = new Image();
         image.onload = () => {
@@ -177,12 +177,12 @@ const ImageCanvasColor = ({searchColor}) => {
     }
   };
 
-  const componentToHex = c => {
+  const componentToHex = (c) => {
     var hex = c.toString(16);
     return hex.length === 1 ? `0${hex}` : hex;
   };
 
-  const rgbToHex = color => {
+  const rgbToHex = (color) => {
     var r = color[0],
       g = color[1],
       b = color[2];

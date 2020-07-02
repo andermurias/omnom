@@ -9,7 +9,7 @@ import * as Papa from 'papaparse';
 import Axios from 'axios';
 import moment from 'moment';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {},
   row: {
     display: 'flex',
@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const EntitiesToolbar = props => {
+const EntitiesToolbar = (props) => {
   const {className, entriesState, ...rest} = props;
 
   const {entries, setEntries} = entriesState;
@@ -42,15 +42,15 @@ const EntitiesToolbar = props => {
 
   const classes = useStyles();
 
-  const onFileSelected = e => {
+  const onFileSelected = (e) => {
     const files = Object.values(e.currentTarget.files);
     Promise.all(
       files.map(
-        file =>
+        (file) =>
           new Promise((res, rej) => {
             var reader = new FileReader();
             reader.readAsText(file);
-            reader.onload = event => {
+            reader.onload = (event) => {
               var results = Papa.parse(event.target.result, {
                 header: true,
                 skipEmptyLines: true,
@@ -62,7 +62,7 @@ const EntitiesToolbar = props => {
             reader.onerror = rej;
           }),
       ),
-    ).then(data => {
+    ).then((data) => {
       setEntries(data.reduce((c, i) => [...c, ...i], []));
     });
   };
@@ -76,7 +76,7 @@ const EntitiesToolbar = props => {
 
     await Promise.all(
       entries
-        .map(entry => {
+        .map((entry) => {
           const start = moment(entry.start, 'HH:mm');
           const end = moment(entry.end, 'HH:mm');
           const date = moment(entry.date, 'YYYYY-MM-DD');
@@ -92,7 +92,7 @@ const EntitiesToolbar = props => {
             },
           };
         })
-        .map(payload =>
+        .map((payload) =>
           Axios.post(`https://${domain}/projects/${projectId}/time_entries.json`, payload, {
             headers: {
               Authorization: `Basic ${token}`,
@@ -115,7 +115,7 @@ const EntitiesToolbar = props => {
                 fullWidth
                 id="teamwork-importer-user"
                 label="Teamwork User"
-                onChange={e => setUsername(e.target.value)}
+                onChange={(e) => setUsername(e.target.value)}
                 value={username}
                 variant="outlined"
               />
@@ -126,7 +126,7 @@ const EntitiesToolbar = props => {
                 fullWidth
                 id="teamwork-importer-password"
                 label="Teamwork Password"
-                onChange={e => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 value={password}
                 variant="outlined"
@@ -137,7 +137,7 @@ const EntitiesToolbar = props => {
                 fullWidth
                 id="teamwork-importer-project"
                 label="Teamwork Deafult Project"
-                onChange={e => setProjectId(e.target.value)}
+                onChange={(e) => setProjectId(e.target.value)}
                 value={projectId}
                 variant="outlined"
               />
@@ -147,7 +147,7 @@ const EntitiesToolbar = props => {
                 fullWidth
                 id="teamwork-importer-domain"
                 label="Teamwork Domain"
-                onChange={e => setDomain(e.target.value)}
+                onChange={(e) => setDomain(e.target.value)}
                 value={domain}
                 variant="outlined"
               />

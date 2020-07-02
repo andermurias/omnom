@@ -7,7 +7,7 @@ import ColorsTable from './components/ColorsTable';
 import * as ntc from 'ntc';
 import {ImageCanvasColor} from './components';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(3),
   },
@@ -58,7 +58,7 @@ const Iro = () => {
   }, getColors());
   const [inputColor, setInputColor] = useState('');
 
-  const addColor = color => {
+  const addColor = (color) => {
     setColors(color);
 
     setInputColor('');
@@ -69,7 +69,7 @@ const Iro = () => {
     localStorage.setItem('colors', JSON.stringify([]));
   };
 
-  const searchColor = colorToSearch => {
+  const searchColor = (colorToSearch) => {
     if (colorToSearch.length === 6) {
       const hexColor = `#${colorToSearch}`,
         // Find the nearest match
@@ -95,7 +95,7 @@ const Iro = () => {
     searchColor(inputColor);
   };
 
-  const hexColorInputKeyPress = e => {
+  const hexColorInputKeyPress = (e) => {
     if (e.nativeEvent.keyCode === 13) {
       search();
       return false; // <---- Add this line
@@ -120,7 +120,7 @@ const Iro = () => {
                   startAdornment: <InputAdornment position="start">#</InputAdornment>,
                 }}
                 label="Color"
-                onChange={e => setInputColor(e.target.value)}
+                onChange={(e) => setInputColor(e.target.value)}
                 onKeyPress={hexColorInputKeyPress}
                 placeholder="Hex Color (#C43424)"
                 value={inputColor}
@@ -158,7 +158,7 @@ const Iro = () => {
                   <span
                     className={classes.monospaced}
                     dangerouslySetInnerHTML={{
-                      __html: colors.map(color => color.less).reduce((carry, color) => `${carry}<br />${color}`),
+                      __html: colors.map((color) => color.less).reduce((carry, color) => `${carry}<br />${color}`),
                     }}
                   />
                 </Grid>
@@ -167,7 +167,7 @@ const Iro = () => {
                   <span
                     className={classes.monospaced}
                     dangerouslySetInnerHTML={{
-                      __html: colors.map(color => color.sass).reduce((carry, color) => `${carry}<br />${color}`),
+                      __html: colors.map((color) => color.sass).reduce((carry, color) => `${carry}<br />${color}`),
                     }}
                   />{' '}
                 </Grid>

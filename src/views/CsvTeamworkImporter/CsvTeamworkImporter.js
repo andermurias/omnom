@@ -4,7 +4,7 @@ import {makeStyles} from '@material-ui/styles';
 import {EntitiesToolbar, EntitiesTable} from './components';
 import {Typography} from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(3),
   },

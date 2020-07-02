@@ -15,7 +15,7 @@ import {
   Avatar,
 } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {},
   imageContainer: {
     height: theme.spacing(8),
@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ProductCard = props => {
+const ProductCard = (props) => {
   const {className, product, ...rest} = props;
 
   const classes = useStyles();

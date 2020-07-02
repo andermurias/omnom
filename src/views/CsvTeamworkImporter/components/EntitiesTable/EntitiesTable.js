@@ -5,7 +5,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 import {makeStyles} from '@material-ui/styles';
 import {Card, CardContent, Table, TableBody, TableCell, TableHead, TableRow, CardHeader} from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {},
   content: {
     padding: 0,
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const EntitiesTable = props => {
+const EntitiesTable = (props) => {
   const {className, timeEntries, ...rest} = props;
 
   const classes = useStyles();

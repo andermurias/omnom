@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import {makeStyles} from '@material-ui/styles';
 import {List, ListItem, Button, colors, Divider, Typography} from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {},
   item: {
     display: 'flex',
@@ -51,14 +51,14 @@ const CustomRouterLink = forwardRef((props, ref) => (
   </div>
 ));
 
-const SidebarNav = props => {
+const SidebarNav = (props) => {
   const {pages, className, ...rest} = props;
 
   const classes = useStyles();
 
   const main = pages.shift();
 
-  const renderItem = page => (
+  const renderItem = (page) => (
     <ListItem className={classes.item} disableGutters key={page.title}>
       <Button activeClassName={classes.active} className={classes.button} component={CustomRouterLink} to={page.href}>
         <div className={classes.icon}>{page.icon}</div>
@@ -74,7 +74,7 @@ const SidebarNav = props => {
       <Typography className={classes.tools} component={ListItem} variant="overline">
         Tools
       </Typography>
-      {pages.map(page => renderItem(page))}
+      {pages.map((page) => renderItem(page))}
     </List>
   );
 };

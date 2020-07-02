@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {makeStyles} from '@material-ui/styles';
 import {AppBar, Toolbar} from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     boxShadow: 'none',
   },
@@ -17,10 +17,11 @@ const useStyles = makeStyles(theme => ({
   },
   img: {
     height: 50,
+    padding: '6px 0',
   },
 }));
 
-const Topbar = props => {
+const Topbar = (props) => {
   const {className, ...rest} = props;
 
   const classes = useStyles();

@@ -9,7 +9,7 @@ import ColorLensIcon from '@material-ui/icons/ColorLens';
 
 import {SidebarNav} from './components';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   drawer: {
     width: 240,
     [theme.breakpoints.up('lg')]: {
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Sidebar = props => {
+const Sidebar = (props) => {
   const {open, variant, onClose, className, ...rest} = props;
 
   const classes = useStyles();
