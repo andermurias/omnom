@@ -39,7 +39,7 @@
     "colorthief": "^2.3.0",
     "history": "^4.9.0",
     "moment": "^2.24.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "ntc": "^0.0.1",
     "papaparse": "^5.2.0",
     "prop-types": "^15.7.2",
