@@ -144,7 +144,7 @@ const EntitiesToolbar = (props) => {
       <CardContent>
         <form noValidate>
           <Grid container spacing={4}>
-            <Grid container item sm={6} xs={12}>
+            <Grid container item md={6} xs={12}>
               <TextField
                 fullWidth
                 id="teamwork-importer-user"
@@ -154,7 +154,7 @@ const EntitiesToolbar = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid container item sm={6} xs={12}>
+            <Grid container item md={6} xs={12}>
               <TextField
                 autoComplete="off"
                 fullWidth
@@ -166,7 +166,7 @@ const EntitiesToolbar = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid container item sm={6} xs={12}>
+            <Grid container item md={6} xs={12}>
               <TextField
                 fullWidth
                 id="teamwork-importer-project"
@@ -176,7 +176,7 @@ const EntitiesToolbar = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid container item sm={6} xs={12}>
+            <Grid container item md={6} xs={12}>
               <TextField
                 fullWidth
                 id="teamwork-importer-domain"
@@ -202,7 +202,7 @@ const EntitiesToolbar = (props) => {
                 </Button>
               </label>
             </Grid>
-            <Grid container item sm={6} xs={12}>
+            <Grid container item md={6} xs={12}>
               <span className={classes.spacer} />
               <Button
                 color="primary"
@@ -214,7 +214,7 @@ const EntitiesToolbar = (props) => {
                 Clean
               </Button>
             </Grid>
-            <Grid container item sm={6} xs={12}>
+            <Grid container item md={6} xs={12}>
               <span className={classes.spacer} />
               <Button
                 color="primary"
