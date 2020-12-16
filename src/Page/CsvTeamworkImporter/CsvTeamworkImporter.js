@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {makeStyles} from '@material-ui/styles';
 
 import EntitiesTable from '../../Component/EntitiesTable/EntitiesTable';
@@ -25,18 +25,21 @@ const CsvTeamworkImporter = () => {
 
   const {setTitle} = useContext(AppContext);
 
-  setTitle('CSV to Teamwork Tool');
+  useEffect(() => {
+    setTitle('CSV to Teamwork Tool');
+  }, [setTitle]);
 
   const [entries, setEntries] = useState([]);
+  const [selected, setSelected] = useState([]);
 
   return (
     <div className={classes.root}>
       <Typography className={classes.title} variant="subtitle1">
         This tool imports all the data you put here to the accound and projecto you select on Teamwork
       </Typography>
-      <EntitiesToolbar entriesState={{entries, setEntries}} />
+      <EntitiesToolbar entriesState={{entries, setEntries, selected, setSelected}} />
       <div className={classes.content}>
-        <EntitiesTable timeEntries={entries} />
+        <EntitiesTable timeEntries={entries} selectedEntities={{setSelected, selected}} />
       </div>
     </div>
   );
