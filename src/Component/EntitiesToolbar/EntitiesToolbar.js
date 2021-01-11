@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   fab: {
-    position: 'absolute',
+    position: 'fixed',
     bottom: theme.spacing(2),
     right: theme.spacing(2),
   },
@@ -181,8 +181,10 @@ const EntitiesToolbar = (props) => {
       };
     });
 
+    let count = 1;
     for (let entry of dataEntries) {
       try {
+        setLoading(true, `Sending ${count++} of ${dataEntries.length}`);
         await Axios.post(`https://${domain}/projects/${entry.data.project.id}/time_entries.json`, entry.payload, {
           headers: {
             Authorization: `Basic ${token}`,
