@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import {createMuiTheme, MuiThemeProvider} from '@material-ui/core';
+import {createTheme, MuiThemeProvider} from '@material-ui/core';
 
 import {theme} from './_config/theme';
 
@@ -46,7 +46,7 @@ const routerConfiguration = [
 
 const RoutedApp = () => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const muiTheme = createMuiTheme(theme(prefersDarkMode));
+  const muiTheme = createTheme(theme(prefersDarkMode));
 
   return (
     <AppProvider>

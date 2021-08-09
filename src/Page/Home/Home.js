@@ -12,7 +12,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     width: '100%',
     height: 'calc(100vh - ' + (theme.mixins.toolbar.minHeight + theme.spacing(2)) + 'px)',
-    opacity: 0.1,
+    opacity: 0.01,
+    padding: '0 20rem 0 20rem',
   },
 }));
 
